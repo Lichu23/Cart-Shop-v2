@@ -1,10 +1,10 @@
 import Filters from "./Filters";
 
-const Header = ({ changeFilters }) => {
+const Header = () => {
   return (
     <>
       <h1 className="text-6xl text-center">Clothes Shop</h1>
-      <Filters changeFilters={changeFilters} />
+      <Filters />
     </>
   );
 };
