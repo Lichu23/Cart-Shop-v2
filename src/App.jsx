@@ -9,9 +9,11 @@ function App() {
 
   return (
     <CartProvider>
-      <Header />
-      <Cart />
-      <Products products={filteredProducts} />
+      <div className="bg-slate-400 w-full h-full">
+        <Cart />
+        <Header />
+        <Products products={filteredProducts} />
+      </div>
     </CartProvider>
   );
 }

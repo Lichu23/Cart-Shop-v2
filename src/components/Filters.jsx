@@ -22,8 +22,8 @@ const Filters = () => {
   };
 
   return (
-    <div>
-      <aside>
+    <div className="md: px-12 flex justify-between uppercase text-sm font-bold">
+      <aside className="flex">
         <label htmlFor={minPriceFilterId}>Price from: </label>
         <input
           id={minPriceFilterId}
@@ -37,8 +37,11 @@ const Filters = () => {
       </aside>
 
       <div>
-        <label htmlFor={categoryFilterId}>Category</label>
-        <select id={categoryFilterId} onChange={handleChangeCategory}>
+        <select
+          className="uppercase rounded-md"
+          id={categoryFilterId}
+          onChange={handleChangeCategory}
+        >
           <option value="all">all</option>
           <option value="men's clothing">men clothes</option>
           <option value="jewelery">jewelery</option>
