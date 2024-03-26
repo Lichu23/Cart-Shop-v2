@@ -22,18 +22,21 @@ const Filters = () => {
   };
 
   return (
-    <div className="md: px-12 flex justify-between uppercase text-sm font-bold">
-      <aside className="flex">
+    <div className="flex justify-between content-center items-center p-10 font-bold">
+      <aside className="flex flex-col">
         <label htmlFor={minPriceFilterId}>Price from: </label>
-        <input
-          id={minPriceFilterId}
-          type="range"
-          min="0"
-          max="600"
-          onChange={handleChangePrice}
-          value={filters.minPrice}
-        />
-        <span>${filters.minPrice}</span>
+        <div className="flex">
+          <input
+            id={minPriceFilterId}
+            type="range"
+            min="0"
+            max="600"
+            onChange={handleChangePrice}
+            value={filters.minPrice}
+          />
+
+          <span>${filters.minPrice}</span>
+        </div>
       </aside>
 
       <div>

@@ -1,4 +1,5 @@
 import { useCart } from "../hooks/useCart";
+import { SquareX, SquarePlus } from "lucide-react";
 
 const Products = ({ products }) => {
   const { addToCart, removeFromCart, cart } = useCart();
@@ -31,7 +32,7 @@ const Products = ({ products }) => {
                   }}
                   className="border rounded-lg hover:bg-color-gray-400"
                 >
-                  {isProductInCart ? "Remove" : "Add"}
+                  {isProductInCart ? <SquareX /> : <SquarePlus />}
                 </button>
               </div>
             </div>

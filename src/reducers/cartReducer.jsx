@@ -1,4 +1,9 @@
-export const cartInitialState = [];
+export const cartInitialState =
+  JSON.parse(window.localStorage.getItem("cart")) || [];
+
+export const updateLocalStorage = (state) => {
+  window.localStorage.setItem("cart", JSON.stringify(state));
+};
 
 //transformar el state a partir del action para devolver un state nuevo o viejo
 export const cartReducer = (state, action) => {
@@ -17,21 +22,27 @@ export const cartReducer = (state, action) => {
         return newCart;
       }
 
-      return [
+      const newState = [
         ...state,
         {
           ...actionPayload, //product
           quantity: 1,
         },
       ];
+      updateLocalStorage(newState);
+      return newState;
     }
 
     case "REMOVE_FROM_CART": {
       const { id } = actionPayload;
-      return state.filter((item) => item.id !== id);
+      const newState = state.filter((item) => item.id !== id);
+      updateLocalStorage(newState);
+      return newState;
     }
 
     case "CLEAN_CART": {
+      updateLocalStorage(cartInitialState);
+
       return cartInitialState;
     }
   }
